@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <style>
+        body {
+            background-image: url(dist/img/bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            block-size: 100vh;
+        }
+    </style>
+    <title>Weather App</title>
+</head>
+
+<body class="flex justify-center ">
+    <section class="pt-20 pb-20 flex justify-center items-center">
+        <div class="container w-full p-8 rounded-2xl shadow-3xl xl:border-none bg-white">
+            <div>
+                <!--Top Section-->
+                <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300">
+                    <div class="flex items-center gap-2">
+                        <img src="dist/img/weather.png" alt="Weather Icon" width="40px" class="mr-2">
+                        <p class="text-xl font-bold text-gray-800">Weather App</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <input type="text" name="" id="cityInput" placeholder="Enter City"
+                            class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 md:w-80 focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500"
+                            aria-label="City Name">
+                        <button id="searchBtn"
+                            class="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 focus:ring focus:ring-blue-300 focus:outline-none flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 16.5l5-5-5-5M5 12h14" />
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                <!--Weather Information-->
+                <div id="weatherInfo" class="">                   
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="container">
+        <h1>Weather App</h1>
+        <input type="text" id="cityInput" placeholder="Enter city">
+        <button id="searchBtn">Search</button>
+        <div id="weatherInfo">
+
+        </div>
+    </div> -->
+    <script src="dist/js/script.js"></script>
+</body>
+
+</html>
