@@ -16,6 +16,10 @@ module.exports = {
       },
       screens:{
         '2xl': '1320px',
+      },
+      backgroundImage: {
+        'gradient-border': 'linear-gradient(to right, #4ed9f0, #0d7bec)', 
+        'gradient-check': 'linear-gradient(to right, #4ef0ee, #64ec0d)', 
       }
     },
   },
