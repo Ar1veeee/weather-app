@@ -20,6 +20,7 @@ module.exports = {
       backgroundImage: {
         'gradient-border': 'linear-gradient(to right, #4ed9f0, #0d7bec)', 
         'gradient-check': 'linear-gradient(to right, #4ef0ee, #64ec0d)', 
+        'gradient-mobile': 'linear-gradient(to bottom right, rgba(78, 217, 240, 0.2), rgba(13, 123, 236, 0.2))',
       }
     },
   },

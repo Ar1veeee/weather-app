@@ -8,94 +8,114 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         body {
-            background-image: url(dist/img/bg.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             block-size: 100vh;
+        }
+
+        video#weatherVideo {
+            position: fixed;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+            z-index: -10;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #weatherVideo.fade-out {
+            opacity: 0;
+        }
+
+        #weatherVideo.fade-in {
+            opacity: 1;
         }
     </style>
     <title>Weather App</title>
 </head>
 
-<body class="flex justify-center text-white">
-    <section class="pt-20 pb-20 flex justify-center items-center ">
-        <div
-            class="container w-full bg-gradient-border p-8 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300">
-            <div>
-                <!--Top Section-->
-                <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 ">
-                    <div class="flex items-center gap-2">
-                        <img src="dist/img/weather.png" alt="Weather Icon" width="40px" class="mr-2">
-                        <p class="text-xl font-bold text-white">Weather App</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <input type="text" name="" id="cityInput" placeholder="Enter City"
-                            class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 md:w-80 focus:outline-none focus:ring focus:ring-blue-500 "
-                            aria-label="City Name">
-                        <button id="searchBtn"
-                            class="bg-gradient-check text-white rounded-md py-2 px-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-100 hover:bg-gradient-check focus:ring focus:ring-gradient-check focus:outline-none flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 16.5l5-5-5-5M5 12h14" />
-                            </svg>
-                            Check
-                        </button>
-                    </div>
-                </div>
-
-                <!--Weather Information-->
-                <div id="weatherInfo" class="">
-                    <div class="hidden">
-                        <div class="my-5 text-center font-sans ">
-                            <h1>Wed, 24 December 2024</h1>
+<body class=" text-white bg-gradient-mobile">    
+    <section class="flex justify-center justify-items-center xl:my-44 md:my-32">
+        <video id="weatherVideo" autoplay loop muted class="h-auto bg-gradient-mobile">
+            <source src="dist/video/default.mp4" type="video/mp4">
+        </video>
+        <div class="xl:px-0 md:px-0 px-5 py-16">
+            <div
+                class="container bg-gradient-border xl:px-10 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300 ">
+                <div>
+                    <!--Top Section-->
+                    <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-11">
+                        <div class="flex items-center gap-2">
+                            <img src="dist/img/weather.png" alt="Weather Icon" width="40px" class="mr-2">
+                            <p class="text-xl font-bold text-white">Weather App</p>
                         </div>
-                        <div class="flex justify-center mb-10">
-                            <div class="mr-10 font-sans">
-                                <p class="text-3xl mt-10">Jakarta</p>
-                                <h1 class="text-3xl">17 °C</h1>
-                                <p class="text-xl">rain</p>
-                            </div>
+                        <div class="xl:flex md:flex items-center justify-items-center gap-3">
                             <div>
-                                <img src="dist/img/rain.png" alt="${description}" width="150px">
+                                <input type="text" name="" id="cityInput" placeholder="Enter City"
+                                    class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 xl:w-60 md:w-40 focus:outline-none mb-3 xl:mb-0 md:mb-0 focus:ring focus:ring-blue-500 "
+                                    aria-label="City Name">
+                            </div>
+                            <div class="justify-end">
+                                <button id="searchBtn"
+                                    class="bg-gradient-check text-white rounded-md py-2 px-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-100 hover:bg-gradient-check focus:ring focus:ring-gradient-check focus:outline-none flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10.5 16.5l5-5-5-5M5 12h14" />
+                                    </svg>
+                                    Check
+                                </button>
                             </div>
                         </div>
-                        <div class="flex justify-center mt-5 p-2">
-                            <div class="flex">
-                                <img src="dist/img/temp.png" alt="Temp" width="45px">
-                                <span class="font-semibold ml-2">
-                                    <p>19 °C</p>
-                                    <p>Feels Like</p>
-                                </span>
-                            </div>
-                            <div class="flex ml-10">
-                                <img src="dist/img/humidity.png" alt="Humidity" width="45px">
-                                <span class="font-semibold ml-2">
-                                    <p>90 %</p>
-                                    <p>Humidity</p>
-                                </span>
-                            </div>
+                    </div>
 
-                            <div class="flex ml-10">
-                                <img src="dist/img/wind.png" alt="Wind" width="45px">
-                                <span class="font-semibold ml-2">
-                                    <p>12 m/s</p>
-                                    <p>Wind Speed</p>
-                                </span>
+                    <!--Weather Information-->
+                    <div id="weatherInfo" class="">
+                        <div class="hidden">
+                            <div class="my-5 text-center font-sans ">
+                                <h1>Wed, 24 December 2024</h1>
                             </div>
-                            <div class="flex ml-10">
-                                <img src="dist/img/compass.png" alt="Wind Direction" width="45px">
-                                <span class="font-semibold ml-2">
-                                    <p>E</p>
-                                    <p>Wind Direction</p>
-                                </span>
+                            <div class="flex justify-center items-center mb-10 gap-2">
+                                <div class="mr-10 font-sans">
+                                    <p class="xl:text-3xl text-2xl">Jakarta</p>
+                                    <h1 class="xl:text-3xl text-2xl">17 °C</h1>
+                                    <p class="xl:text-3xl text-2xl">rain</p>
+                                </div>
+                                <div>
+                                    <img src="dist/img/rain.png" alt="${description}" width="150px">
+                                </div>
                             </div>
-                            <div class="flex ml-10">
-                                <img src="dist/img/pressure.png" alt="Pressure" width="45px">
-                                <span class="font-semibold ml-2">
-                                    <p>1000 hPa</p>
-                                    <p>Pressure</p>
-                                </span>
+                            <div class="flex flex-wrap mt-5 p-2 gap-3">
+                                <div class="flex">
+                                    <img src="dist/img/temp.png" alt="Temp" width="40px" height="auto">
+                                    <span class="text-md xl:text-xl">
+                                        <p>19 °C</p>
+                                    </span>
+                                </div>
+                                <div class="flex">
+                                    <img src="dist/img/humidity.png" alt="Humidity" width="40px" height="auto">
+                                    <span class="text-md xl:text-xl">
+                                        <p>90 %</p>
+                                    </span>
+                                </div>
+
+                                <div class="flex">
+                                    <img src="dist/img/wind.png" alt="Wind" width="40px" height="auto">
+                                    <span class="text-md xl:text-xl">
+                                        <p>12 m/s</p>
+                                    </span>
+                                </div>
+                                <div class="flex">
+                                    <img src="dist/img/compass.png" alt="Wind Direction" width="40px" height="auto">
+                                    <span class="text-md xl:text-xl">
+                                        <p>E</p>
+                                    </span>
+                                </div>
+                                <div class="flex">
+                                    <img src="dist/img/pressure.png" alt="Pressure" width="40px" height="auto">
+                                    <span class="text-md xl:text-xl">
+                                        <p>1000 hPa</p>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,6 +124,37 @@
         </div>
     </section>
     <script src="dist/js/script.js"></script>
+    <script>
+        // Lazy loading menggunakan IntersectionObserver
+        const lazyVideos = document.querySelectorAll('.lazy-video');
+
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const video = entry.target;
+                        const source = video.querySelector('source');
+
+                        if (source.dataset.src) {
+                            source.src = source.dataset.src;
+                            video.load();
+                        }
+                        videoObserver.unobserve(video);
+                    }
+                });
+            });
+
+            lazyVideos.forEach(video => videoObserver.observe(video));
+        } else {
+            lazyVideos.forEach(video => {
+                const source = video.querySelector('source');
+                if (source.dataset.src) {
+                    source.src = source.dataset.src;
+                    video.load();
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
