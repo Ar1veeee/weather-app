@@ -33,28 +33,28 @@
     <title>Weather App</title>
 </head>
 
-<body class=" text-white bg-gradient-mobile">    
+<body class=" text-white bg-gradient-mobile items-center relative">
     <section class="flex justify-center justify-items-center xl:my-44 md:my-32">
         <video id="weatherVideo" autoplay loop muted class="h-auto bg-gradient-mobile">
             <source src="dist/video/default.mp4" type="video/mp4">
         </video>
-        <div class="xl:px-0 md:px-0 px-5 py-16">
+        <div class="xl:px-0 md:px-0 px-5 xl:py-16 pt-1 pb-20 absolute top-24">
             <div
-                class="container bg-gradient-border xl:px-10 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300 ">
+                class="container bg-gradient-border xl:px-10 px-4 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300 ">
                 <div>
                     <!--Top Section-->
-                    <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-11">
+                    <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-2">
                         <div class="flex items-center gap-2">
                             <img src="dist/img/weather.png" alt="Weather Icon" width="40px" class="mr-2">
                             <p class="text-xl font-bold text-white">Weather App</p>
                         </div>
-                        <div class="xl:flex md:flex items-center justify-items-center gap-3">
+                        <div class="flex items-center gap-3">
                             <div>
                                 <input type="text" name="" id="cityInput" placeholder="Enter City"
-                                    class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 xl:w-60 md:w-40 focus:outline-none mb-3 xl:mb-0 md:mb-0 focus:ring focus:ring-blue-500 "
+                                    class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 xl:w-60 md:w-40 focus:outline-none  focus:ring focus:ring-blue-500 "
                                     aria-label="City Name">
                             </div>
-                            <div class="justify-end">
+                            <div>
                                 <button id="searchBtn"
                                     class="bg-gradient-check text-white rounded-md py-2 px-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-100 hover:bg-gradient-check focus:ring focus:ring-gradient-check focus:outline-none flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -62,7 +62,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M10.5 16.5l5-5-5-5M5 12h14" />
                                     </svg>
-                                    Check
+                                    <span class="hidden xl:inline">Check</span>                                    
                                 </button>
                             </div>
                         </div>
@@ -84,38 +84,43 @@
                                     <img src="dist/img/rain.png" alt="${description}" width="150px">
                                 </div>
                             </div>
-                            <div class="flex flex-wrap mt-5 p-2 gap-3">
-                                <div class="flex">
-                                    <img src="dist/img/temp.png" alt="Temp" width="40px" height="auto">
-                                    <span class="text-md xl:text-xl">
-                                        <p>19 °C</p>
-                                    </span>
+                            <div class="flex justify-between flex-wrap mt-5 p-2">
+                                <div class="flex gap-2">
+                                    <div>
+                                        <img src="dist/img/temp.png" alt="Temp" width="30px" height="30px">
+                                    </div>
+                                    <div class="">
+                                        <span class="text-slate-300">Feels Like</span>
+                                    <p class="text-2xl">19 °C</p>
+                                    </div>
                                 </div>
-                                <div class="flex">
-                                    <img src="dist/img/humidity.png" alt="Humidity" width="40px" height="auto">
-                                    <span class="text-md xl:text-xl">
-                                        <p>90 %</p>
-                                    </span>
-                                </div>
-
-                                <div class="flex">
-                                    <img src="dist/img/wind.png" alt="Wind" width="40px" height="auto">
-                                    <span class="text-md xl:text-xl">
-                                        <p>12 m/s</p>
-                                    </span>
-                                </div>
-                                <div class="flex">
-                                    <img src="dist/img/compass.png" alt="Wind Direction" width="40px" height="auto">
-                                    <span class="text-md xl:text-xl">
-                                        <p>E</p>
-                                    </span>
-                                </div>
-                                <div class="flex">
-                                    <img src="dist/img/pressure.png" alt="Pressure" width="40px" height="auto">
-                                    <span class="text-md xl:text-xl">
-                                        <p>1000 hPa</p>
-                                    </span>
-                                </div>
+                                <div class="flex gap-2">
+                                    <div>
+                                        <img src="dist/img/humidity.png" alt="Humidity" width="30px" height="30px">
+                                    </div>
+                                    <div class="">
+                                        <span class="text-slate-300">Humidity</span>
+                                    <p class="text-2xl">90 %</p>
+                                    </div>
+                                </div>                              
+                                <div class="flex gap-2">
+                                    <div>
+                                        <img src="dist/img/wind.png" alt="Wind" width="30px" height="30px">
+                                    </div>
+                                    <div class="">
+                                        <span class="text-slate-300">Wind</span>
+                                    <p class="text-2xl">12 m/s</p>
+                                    </div>
+                                </div>                              
+                                <div class="flex gap-2">
+                                    <div>
+                                        <img src="dist/img/compass.png" alt="Wind Direction" width="30px" height="30px">
+                                    </div>
+                                    <div class="">
+                                        <span class="text-slate-300">Direction</span>
+                                    <p class="text-2xl">90 %</p>
+                                    </div>
+                                </div>                                                              
                             </div>
                         </div>
                     </div>

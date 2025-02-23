@@ -11,20 +11,19 @@ function getWindDirection(degree) {
 }
 
 function preloadVideo(src) {
-  const video = document.createElement('video');
+  const video = document.createElement("video");
   video.src = src;
-  video.preload = 'auto'; // Preload resource
+  video.preload = "auto"; // Preload resource
 }
 
 const weatherVideos = {
-  rain: 'dist/video/rain.mp4',
-  sun: 'dist/video/sun.mp4',
-  snow: 'dist/video/snow.mp4',
-  cloudy: 'dist/video/cloudy.mp4',
+  rain: "dist/video/rain.mp4",
+  sun: "dist/video/sun.mp4",
+  snow: "dist/video/snow.mp4",
+  cloudy: "dist/video/cloudy.mp4",
 };
 
 Object.values(weatherVideos).forEach(preloadVideo);
-
 
 const weatherVideo = document.getElementById("weatherVideo");
 
@@ -56,20 +55,19 @@ function updateWeatherVideo(description) {
   }
 
   // Transisi video
-  videoElement.classList.add("fade-out"); 
+  videoElement.classList.add("fade-out");
 
   setTimeout(() => {
     sourceElement.src = videoSrc;
-    videoElement.load(); 
-    videoElement.classList.remove("fade-out"); 
-    videoElement.classList.add("fade-in"); 
+    videoElement.load();
+    videoElement.classList.remove("fade-out");
+    videoElement.classList.add("fade-in");
 
     setTimeout(() => {
-      videoElement.classList.remove("fade-in"); 
-    }, 300); 
-  }, 300); 
+      videoElement.classList.remove("fade-in");
+    }, 300);
+  }, 300);
 }
-
 
 // Fungsi untuk mengonversi Unix timestamp + timezone offset ke waktu lokal
 function convertToLocalTimeText(unixTime, timezoneOffset) {
@@ -106,7 +104,7 @@ searchBtn.addEventListener("click", () => {
         const feels_like = Math.round(main.feels_like);
         const humidity = main.humidity;
         const windSpeed = wind.speed;
-        const windDeg = wind.deg;      
+        const windDeg = wind.deg;
         const description = weather[0].main;
 
         updateWeatherVideo(description);
@@ -130,16 +128,16 @@ searchBtn.addEventListener("click", () => {
             iconSrc = "dist/img/cloudy.png";
         }
 
-               // Update tampilan cuaca
-               weatherInfo.innerHTML = `
-               <div class="my-5 text-center font-sans">
+        // Update tampilan cuaca
+        weatherInfo.innerHTML = `
+               <div class="my-5 text-center font-sans text-slate-200">
                    <h1>${localTimeText}</h1>
                </div>
                <div class="flex justify-center items-center mb-10 gap-8">
                    <div class="mr-10 font-sans">
-                       <p class="xl:text-3xl text-2xl">${name}</p>
-                       <h1 class="xl:text-3xl text-2xl">${temperature} °C</h1>
-                       <p class="xl:text-3xl text-2xl">${
+                       <p class="xl:text-3xl md:text-2xl text-xl">${name}</p>
+                       <h1 class="xl:text-3xl md:text-2xl text-xl">${temperature} °C</h1>
+                       <p class="xl:text-3xl md:text-2xl text-xl">${
                          description.charAt(0).toUpperCase() +
                          description.slice(1)
                        }</p>
@@ -148,33 +146,47 @@ searchBtn.addEventListener("click", () => {
                        <img src="${iconSrc}" alt="${description}" width="150px">
                    </div>
                </div>
-               <div class="flex justify-center p-2 gap-4">
-                   <div class="text-center">
-                       <img src="dist/img/temp.png" alt="Temp" width="50px">
-                       <p class="text-md xl:text-xl">
-                           <p>${feels_like} °C</p>                            
-                       </p>
-                   </div>
-                   <div class="text-center">
-                       <img src="dist/img/humidity.png" alt="Humidity" width="50px">
-                       <p class="text-md xl:text-xl">
-                           <p>${humidity} %</p>                            
-                       </p>
-                   </div>
-                   <div class="text-center">
-                       <img src="dist/img/wind.png" alt="Wind" width="50px">
-                       <p class="text-md xl:text-xl">
-                           <p>${windSpeed} m/s</p>                            
-                       </p>
-                   </div>
-                   <div class="text-center">
-                       <img src="dist/img/compass.png" alt="Wind Direction" width="50px">
-                       <p class="text-md xl:text-xl">
-                           <p>${getWindDirection(windDeg)}</p>                            
-                       </p>
-                   </div>                   
+               <div class="flex justify-between flex-wrap mt-5 p-2">
+                  <div class="flex gap-2">
+                      <div>
+                          <img src="dist/img/temp.png" alt="Temp" width="30px" height="30px">
+                      </div>
+                      <div class="">
+                          <span class="text-slate-300">Feels Like</span>
+                      <p class="text-2xl">${feels_like} °C</p>
+                      </div>
+                  </div>                   
+                  <div class="flex gap-2">
+                      <div>
+                          <img src="dist/img/humidity.png" alt="Temp" width="30px" height="30px">
+                      </div>
+                      <div class="">
+                          <span class="text-slate-300">Humidity</span>
+                      <p class="text-2xl">${humidity} %</p>
+                      </div>
+                  </div>                   
+                  <div class="flex gap-2">
+                      <div>
+                          <img src="dist/img/wind.png" alt="Temp" width="30px" height="30px">
+                      </div>
+                      <div class="">
+                          <span class="text-slate-300">Wind</span>
+                      <p class="text-2xl">${windSpeed} m/s</p>
+                      </div>
+                  </div>                   
+                  <div class="flex gap-2">
+                      <div>
+                          <img src="dist/img/compass.png" alt="Temp" width="30px" height="30px">
+                      </div>
+                      <div class="">
+                          <span class="text-slate-300">Direction</span>
+                      <p class="text-2xl">${getWindDirection(
+                             windDeg
+                           )}</p>
+                      </div>
+                  </div>                                                    
                </div>
-           `;   
+           `;
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
