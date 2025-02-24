@@ -193,6 +193,7 @@ searchBtn.addEventListener("click", () => {
 
         // Update tampilan cuaca
         weatherInfo.innerHTML = `
+              <div class="xl:w-1/2 w-full">
                <div class="my-5 text-center font-sans text-slate-200">
                    <h1>${localTimeText}</h1>
                </div>
@@ -209,14 +210,14 @@ searchBtn.addEventListener("click", () => {
                        <img src="${iconSrc}" alt="${description}" width="150px">
                    </div>
                </div>
-               <div class="flex justify-between flex-wrap mt-5 px-4 gap-3">
+               <div class="flex justify-between flex-wrap mt-5 xl:px-0 px-4 gap-3">
                   <div class="flex">
                       <div>
                           <img src="dist/img/temp.png" alt="Temp" width="30px" height="30px">
                       </div>
                       <div class="">
-                          <span class="text-slate-300">Feels Like</span>
-                      <p class="text-2xl">${feels_like} °C</p>
+                          <span class="text-slate-300 text-md">Feels Like</span>
+                      <p class="xl:text-2xl text-xl">${feels_like} °C</p>
                       </div>
                   </div>                   
                   <div class="flex gap-2">
@@ -224,8 +225,8 @@ searchBtn.addEventListener("click", () => {
                           <img src="dist/img/humidity.png" alt="Temp" width="30px" height="30px">
                       </div>
                       <div class="">
-                          <span class="text-slate-300">Humidity</span>
-                      <p class="text-2xl">${humidity} %</p>
+                          <span class="text-slate-300 text-md">Humidity</span>
+                      <p class="xl:text-2xl text-xl">${humidity} %</p>
                       </div>
                   </div>                   
                   <div class="flex gap-2">
@@ -233,8 +234,8 @@ searchBtn.addEventListener("click", () => {
                           <img src="dist/img/wind.png" alt="Temp" width="30px" height="30px">
                       </div>
                       <div class="">
-                          <span class="text-slate-300">Wind</span>
-                      <p class="text-2xl">${windSpeed} m/s</p>
+                          <span class="text-slate-300 text-md">Wind</span>
+                      <p class="xl:text-2xl text-xl">${windSpeed} m/s</p>
                       </div>
                   </div>                   
                   <div class="flex gap-2">
@@ -242,12 +243,13 @@ searchBtn.addEventListener("click", () => {
                           <img src="dist/img/compass.png" alt="Temp" width="30px" height="30px">
                       </div>
                       <div class="">
-                          <span class="text-slate-300">Direction</span>
-                      <p class="text-2xl">${getWindDirection(
+                          <span class="text-slate-300 text-md">Direction</span>
+                      <p class="xl:text-2xl text-xl">${getWindDirection(
                              windDeg
                            )}</p>
                       </div>
                   </div>                                                    
+               </div>
                </div>
            `;
       })

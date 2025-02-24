@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/output.css">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             block-size: 100vh;
@@ -33,7 +34,7 @@
     <title>Weather App</title>
 </head>
 
-<body class=" text-white bg-gradient-mobile items-center relative">
+<body class="font-gabarito text-white bg-gradient-mobile items-center relative">
     <section class="flex justify-center justify-items-center xl:my-44 md:my-32">
         <video id="weatherVideo" autoplay loop muted class="h-auto bg-gradient-mobile">
             <source src="dist/video/default.mp4" type="video/mp4">
@@ -45,7 +46,7 @@
                     <!--Top Section-->
                     <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-2">
                         <div class="flex items-center gap-2">
-                            <img src="dist/img/weather.png" alt="Weather Icon" width="40px" class="mr-2">
+                            <img src="dist/img/weather-logo.png" alt="Weather Icon" width="40px" class="mr-2">
                             <p class="text-xl font-bold text-white">Weather App</p>
                         </div>
                         <div class="flex items-center gap-3">
@@ -70,8 +71,8 @@
                     </div>
 
                     <!--Weather Information-->
-                    <div id="weatherInfo" class="">
-                        <div class="hidden">
+                    <div id="weatherInfo" class="flex justify-center">                        
+                        <!-- <div class="hidden">
                             <div class="my-5 text-center font-sans ">
                                 <h1>Wed, 24 December 2024</h1>
                             </div>
@@ -123,7 +124,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
