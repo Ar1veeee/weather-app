@@ -40,7 +40,7 @@
         </video>
         <div class="xl:px-0 md:px-0 px-5 xl:py-16 pt-1 pb-20 absolute top-24">
             <div
-                class="container bg-gradient-border xl:px-10 px-4 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300 ">
+                class="container bg-gradient-border xl:px-10 px-4 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 hover:scale-110 duration-300 shadow-xl">
                 <div>
                     <!--Top Section-->
                     <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-2">
@@ -53,6 +53,7 @@
                                 <input type="text" name="" id="cityInput" placeholder="Enter City"
                                     class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 xl:w-60 md:w-40 focus:outline-none  focus:ring focus:ring-blue-500 "
                                     aria-label="City Name">
+                                <div id="citySuggestions" class="w-full rounded  relative"></div>
                             </div>
                             <div>
                                 <button id="searchBtn"
@@ -62,7 +63,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M10.5 16.5l5-5-5-5M5 12h14" />
                                     </svg>
-                                    <span class="hidden xl:inline">Check</span>                                    
+                                    <span class="hidden xl:inline">Check</span>
                                 </button>
                             </div>
                         </div>
@@ -91,7 +92,7 @@
                                     </div>
                                     <div class="">
                                         <span class="text-slate-300">Feels Like</span>
-                                    <p class="text-2xl">19 °C</p>
+                                        <p class="text-2xl">19 °C</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-2">
@@ -100,27 +101,27 @@
                                     </div>
                                     <div class="">
                                         <span class="text-slate-300">Humidity</span>
-                                    <p class="text-2xl">90 %</p>
+                                        <p class="text-2xl">90 %</p>
                                     </div>
-                                </div>                              
+                                </div>
                                 <div class="flex gap-2">
                                     <div>
                                         <img src="dist/img/wind.png" alt="Wind" width="30px" height="30px">
                                     </div>
                                     <div class="">
                                         <span class="text-slate-300">Wind</span>
-                                    <p class="text-2xl">12 m/s</p>
+                                        <p class="text-2xl">12 m/s</p>
                                     </div>
-                                </div>                              
+                                </div>
                                 <div class="flex gap-2">
                                     <div>
                                         <img src="dist/img/compass.png" alt="Wind Direction" width="30px" height="30px">
                                     </div>
                                     <div class="">
                                         <span class="text-slate-300">Direction</span>
-                                    <p class="text-2xl">90 %</p>
+                                        <p class="text-2xl">90 %</p>
                                     </div>
-                                </div>                                                              
+                                </div>
                             </div>
                         </div>
                     </div>

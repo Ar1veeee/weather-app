@@ -2,6 +2,69 @@ const apiKey = "dabbf6578441104f5e6678728853e0c9"; // Ganti dengan API key OpenW
 const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("cityInput");
 const weatherInfo = document.getElementById("weatherInfo");
+const citySuggestions = document.getElementById("citySuggestions");
+
+// Fungsi untuk mendapatkan saran kota dari OpenWeatherMap
+async function getCitySuggestions(query) {
+  if (query.length < 1) {
+    citySuggestions.innerHTML = ""; 
+    return;
+  }
+
+  const response = await fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`
+  );
+
+  if (!response.ok) {
+    console.error("Error fetching city suggestions");
+    return;
+  }
+
+  const cities = await response.json();
+  showCitySuggestions(cities);
+}
+
+// Fungsi untuk menampilkan daftar saran kota
+function showCitySuggestions(cities) {
+  citySuggestions.innerHTML = ""; 
+
+  if (cities.length === 0) {
+    return; 
+  }
+
+  citySuggestions.innerHTML = `
+    <ul class="absolute bg-gradient-mobile rounded cursor-pointer">
+      ${cities
+        .map(
+          (city) => `
+        <li class="p-2 hover:bg-blue-700 cursor-pointer" onclick="selectCity('${city.name}')">
+          ${city.name}, ${city.country}
+        </li>
+      `
+        )
+        .join("")}
+    </ul>
+  `;
+}
+
+// Fungsi untuk memilih kota dari daftar saran
+function selectCity(cityName) {
+  cityInput.value = cityName; 
+  citySuggestions.innerHTML = ""; 
+}
+
+// Event listener saat mengetik di input
+cityInput.addEventListener("input", () => {
+  const query = cityInput.value.trim();
+  getCitySuggestions(query);
+});
+
+// Event listener untuk menyembunyikan saran saat klik di luar
+document.addEventListener("click", (event) => {
+  if (!cityInput.contains(event.target) && !citySuggestions.contains(event.target)) {
+    citySuggestions.innerHTML = "";
+  }
+});
 
 // Fungsi untuk mendapatkan arah angin
 function getWindDirection(degree) {
