@@ -209,8 +209,8 @@ searchBtn.addEventListener("click", () => {
                        <img src="${iconSrc}" alt="${description}" width="150px">
                    </div>
                </div>
-               <div class="flex justify-between flex-wrap mt-5 p-2">
-                  <div class="flex gap-2">
+               <div class="flex justify-between flex-wrap mt-5 p-2 gap-4">
+                  <div class="flex">
                       <div>
                           <img src="dist/img/temp.png" alt="Temp" width="30px" height="30px">
                       </div>
