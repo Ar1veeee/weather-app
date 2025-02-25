@@ -648,6 +648,10 @@ video {
   height: auto;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -893,6 +897,22 @@ video {
   }
 }
 
+@media (min-width: 1024px) {
+  .lg\:w-40 {
+    width: 10rem;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 @media (min-width: 1280px) {
   .xl\:my-44 {
     margin-top: 11rem;
@@ -905,10 +925,6 @@ video {
 
   .xl\:w-60 {
     width: 15rem;
-  }
-
-  .xl\:w-1\/2 {
-    width: 50%;
   }
 
   .xl\:border-none {

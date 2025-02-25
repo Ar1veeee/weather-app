@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/dist/img/weather-app.ico" />
     <link rel="stylesheet" href="src/output.css">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700&display=swap" rel="stylesheet">
@@ -39,9 +40,9 @@
         <video id="weatherVideo" autoplay loop muted class="h-auto bg-gradient-mobile">
             <source src="dist/video/default.mp4" type="video/mp4">
         </video>
-        <div class="xl:px-0 md:px-0 px-5 xl:py-16 pt-1 pb-20 absolute top-24">
+        <div class="xl:px-0 lg:px-0 md:px-0 px-5 xl:py-16 pt-1 pb-20 absolute top-24">
             <div
-                class="container bg-gradient-border xl:px-10 px-4 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 xl:hover:scale-110 duration-300 shadow-xl">
+                class="container bg-gradient-border xl:px-10 lg:px-4 px-4 py-10 rounded-2xl shadow-3xl xl:border-none bg-white transition ease-in-out delay-150 xl:hover:scale-110 duration-300 shadow-xl">
                 <div>
                     <!--Top Section-->
                     <div class="flex flex-wrap items-center justify-center gap-4 pb-4 border-b border-gray-300 mx-2">
@@ -52,9 +53,9 @@
                         <div class="flex items-center gap-3">
                             <div>
                                 <input type="text" name="" id="cityInput" placeholder="Enter City"
-                                    class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 xl:w-60 md:w-40 focus:outline-none  focus:ring focus:ring-blue-500 "
+                                    class="bg-slate-200 text-gray-800 rounded-xl py-2 px-4 w-60 focus:outline-none  focus:ring focus:ring-blue-500 "
                                     aria-label="City Name">
-                                <div id="citySuggestions" class="w-full rounded  relative"></div>
+                                <div id="citySuggestions" class="w-full rounded relative"></div>
                             </div>
                             <div>
                                 <button id="searchBtn"
